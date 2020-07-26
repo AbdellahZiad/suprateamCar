@@ -1,0 +1,54 @@
+<p-dataView #dv [value]="cars" [paginator]="true" [rows]="20" paginatorPosition="both" filterBy="brand"
+            [sortField]="sortField" [sortOrder]="sortOrder">
+  <p-header>
+    <div class="ui-helper-clearfix">
+      <div class="p-grid">
+        <div class="p-col-12 p-md-4">
+          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [style]="{'min-width':'140px'}"></p-dropdown>
+        </div>
+        <div class="p-col-6 p-md-4 filter-container">
+          <div style="position:relative">
+            <input type="search" pInputText placeholder="Search by brand" (input)="dv.filter($event.target.value)">
+          </div>
+        </div>
+        <div class="p-col-6 p-md-4" style="text-align:right">
+          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+        </div>
+      </div>
+    </div>
+  </p-header>
+  <ng-template let-car pTemplate="listItem">
+    <div class="p-col-12">
+      <div class="car-details">
+        <div>
+          <img src="assets/img/audi.png"  width="60">
+          <div class="p-grid">
+            <div class="p-col-12">Vin: <b>{{car.vin}}</b></div>
+            <div class="p-col-12">Year: <b>{{car.year}}</b></div>
+            <div class="p-col-12">Brand: <b>{{car.brand}}</b></div>
+            <div class="p-col-12">Color: <b>{{car.color}}</b></div>
+          </div>
+        </div>
+        <button pButton type="button" icon="pi pi-search" (click)="selectCar($event, car)"></button>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template let-car pTemplate="gridItem">
+    <div style="padding:.5em" class="p-col-12 p-md-3">
+      <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
+<!--        <img src="assets/showcase/images/demo/car/{{car.brand}}.png" width="60">-->
+        <img src="assets/img/audi.png"  width="60">
+        <div class="car-detail">{{car.year}} - {{car.color}}</div>
+        <button pButton type="button" icon="pi pi-search" (click)="selectCar($event, car)" style="margin-top:0"></button>
+      </p-panel>
+    </div>
+  </ng-template>
+</p-dataView>
+
+<p-dialog header="Car Details" [(visible)]="displayDialog" [minY]="70" showEffect="fade" [modal]="true"
+          [style]="{width: '225px'}" [contentStyle]="{padding: '2em', textAlign: 'center'}">
+  <div *ngIf="selectedCar">
+    <img src="assets/img/audi.png"  width="60">
+    <strong>{{selectedCar.vin}} - {{selectedCar.year}}</strong>
+  </div>
+</p-dialog>

@@ -118,7 +118,7 @@
 
 
   <div class="claim-tab">
-<!--    <p-scrollPanel [style]="{width: '100%', height: '200px'}" styleClass="custombar2">-->
+    <!--    <p-scrollPanel [style]="{width: '100%', height: '200px'}" styleClass="custombar2">-->
 
     <p-tabView class="ui-window-panel" [controlClose]="true">
       <p-tabPanel class="tab-pane fade" *ngFor=" let section of listOfData3" header="{{section.sectionName}}">
@@ -147,9 +147,9 @@
                     <div class="media-title">{{media.name}}</div>
                     <div class="media-subtitle">{{media.mediaType}} | {{media.sectionTag}}</div>
                     <div>
-<!--                      <img class="imgStyle" [src]="'data:image/jpeg;base64,'+ media.mediaContent"/>-->
+                      <!--                      <img class="imgStyle" [src]="'data:image/jpeg;base64,'+ media.mediaContent"/>-->
                       <img (click)="showPicture(media.id)" class="svg" src="assets/img/picture.svg"/>
-<!--                      <i style="color: #007090;font-size: 600%;padding-left: 4%;" nz-icon nzType="camera" nzTheme="outline"></i>-->
+                      <!--                      <i style="color: #007090;font-size: 600%;padding-left: 4%;" nz-icon nzType="camera" nzTheme="outline"></i>-->
                     </div>
                   </div>
                 </div>
@@ -171,15 +171,15 @@
                     <div>
                       <video (click)="showVideo(media.id)" class="vid"  controls>
 
-<!--                        <source [src]="'data:video/mp4;base64,'+media.mediaContent" type="video/mp4">-->
-<!--                        <i style="color: #007090;font-size: 600%;padding-left: 4%;" nz-icon nzType="video-camera" nzTheme="outline"></i>-->
-<!--                        Your browser does not support the video tag.-->
+                        <!--                        <source [src]="'data:video/mp4;base64,'+media.mediaContent" type="video/mp4">-->
+                        <!--                        <i style="color: #007090;font-size: 600%;padding-left: 4%;" nz-icon nzType="video-camera" nzTheme="outline"></i>-->
+                        <!--                        Your browser does not support the video tag.-->
                       </video>
                     </div>
                     <div class="media-buttons">
-<!--                      <button pButton type="button" (click)="showVideo()" class="ui-button-secondary"-->
-<!--                              icon="pi pi-star"></button>-->
-<!--                      <button pButton type="button" class="ui-button-secondary" icon="pi pi-cog"></button>-->
+                      <!--                      <button pButton type="button" (click)="showVideo()" class="ui-button-secondary"-->
+                      <!--                              icon="pi pi-star"></button>-->
+                      <!--                      <button pButton type="button" class="ui-button-secondary" icon="pi pi-cog"></button>-->
                     </div>
                   </div>
                 </div>
@@ -199,7 +199,7 @@
                     <div class="media-title">{{media.name}}</div>
                     <div class="media-subtitle">{{media.mediaType}} | {{media.sectionTag}}</div>
                     <div  style="cursor: pointer">
-<!--                      <audio   controls class="vid" ></audio>-->
+                      <!--                      <audio   controls class="vid" ></audio>-->
                       <img (click)="showAudio(media.id)" class="svg" src="assets/img/audio.svg"/>
 
                     </div>
@@ -271,10 +271,10 @@
 
 
 <p-dialog header="Show video"  [style]="{'width':'1000px', 'margin-right':'80px'}" [(visible)]="isVisibleVideo">
-<!--  <video>-->
-<!--    <source [src]="'data:video/mp4;base64,'+mediaContent" type="video/mp4">-->
-<!--    Your browser does not support HTML5 video.-->
-<!--  </video>-->
+  <!--  <video>-->
+  <!--    <source [src]="'data:video/mp4;base64,'+mediaContent" type="video/mp4">-->
+  <!--    Your browser does not support HTML5 video.-->
+  <!--  </video>-->
 
   <video  [style]="{'width':'1000px', 'margin-right':'80px'}" controls
           [src]="'data:video/mp4;base64,'+mediaContent">
@@ -286,7 +286,7 @@
 
 <p-dialog [style]="{'width':'1000px', 'margin-right':'80px'}"
           header="Show Picture" [(visible)]="isVisiblePicture" >
-   <img class="imgStyle" [src]="'data:image/jpeg;base64,'+ mediaContent" alt=""/>
+  <img class="imgStyle" [src]="'data:image/jpeg;base64,'+ mediaContent" alt=""/>
 
 </p-dialog>
 
@@ -295,8 +295,8 @@
 <p-dialog [style]="{'width':'1000px', 'margin-right':'80px'}"
           header="Show Audio" [(visible)]="isVisibleAudio" >
   <audio  style="width: 100%;"
-    controls
-    [src]="'data:audio/amr;base64,'+mediaContent">
+          controls
+          [src]="'data:audio/amr;base64,'+mediaContent">
     Your browser does not support the
     <code>audio</code> element.
   </audio>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SurveySearchComponent } from './survey-search.component';
+import { VehicleManagementComponent } from './vehicle-management.component';
 
-describe('SurveySearchComponent', () => {
-  let component: SurveySearchComponent;
-  let fixture: ComponentFixture<SurveySearchComponent>;
+describe('VehicleManagementComponent', () => {
+  let component: VehicleManagementComponent;
+  let fixture: ComponentFixture<VehicleManagementComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SurveySearchComponent ]
+      declarations: [ VehicleManagementComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SurveySearchComponent);
+    fixture = TestBed.createComponent(VehicleManagementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

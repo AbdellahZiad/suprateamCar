@@ -1,4 +1,4 @@
 export const environment = {
   production: true
 };
-export const endpoint = 'http://localhost:8283/';
+export const endpoint = 'http://localhost:8288/';

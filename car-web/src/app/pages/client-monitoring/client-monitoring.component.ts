@@ -1,41 +1,39 @@
-import {Component, OnInit} from '@angular/core';
-import {NzMessageService, NzModalService} from 'ng-zorro-antd';
-import {SurveyService} from '../welcome/services/survey.service';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {SurveyModel} from "../../model/SurveyModel";
-import form_template from "./form_template";
-import {SurveyDetalsModel} from "../../model/SurveyDetalsModel";
+import {NzMessageService, NzModalService} from "ng-zorro-antd";
+import {SurveyService} from "../welcome/services/survey.service";
 import {MediaService} from "../welcome/services/media.service";
-import {MediaModel} from "../../model/MediaModel";
 import {AuthenticationService} from "../../services/authentication.service";
-
+import {SurveyDetalsModel} from "../../model/SurveyDetalsModel";
+import {MediaModel} from "../../model/MediaModel";
 
 @Component({
-  selector: 'app-survey-monitoring',
-  templateUrl: './survey-monitoring.component.html',
-  styleUrls: ['./survey-monitoring.component.scss']
+  selector: 'app-client-monitoring',
+  templateUrl: './client-monitoring.component.html',
+  styleUrls: ['./client-monitoring.component.scss']
 })
-export class SurveyMonitoringComponent implements OnInit {
+export class ClientMonitoringComponent implements OnInit {
   listOfData = [];
   listOfData2 = [];
   myFormGroup:FormGroup;
-  formTemplate:any = form_template;
+  // formTemplate:any = form_template;
   mediaImage: any;
   mediaVideos: any;
   mediaAudios: any;
   mediaOthers: any;
-    // = [
-    // {"brand": "mobapp.png", "year": 2012, "color": "Orange", "vin": "dsad231ff"},
-    // {"brand": "ui.png", "year": 2011, "color": "Black", "vin": "gwregre345"},
-    // {"brand": "ui.png", "year": 2005, "color": "Gray", "vin": "h354htr"},
-    // {"brand": "mobapp.png", "year": 2005, "color": "Gray", "vin": "h354htr"},
-    // {"brand": "mobapp.png", "year": 2003, "color": "Blue", "vin": "j6w54qgh"},
-    // {"brand": "mobapp.png", "year": 1995, "color": "Orange", "vin": "hrtwy34"},
-    // {"brand": "mobapp.png", "year": 2005, "color": "Black", "vin": "jejtyj"},
-    // {"brand": "mobapp.png", "year": 2012, "color": "Yellow", "vin": "g43gr"},
-    // {"brand": "mobapp.png", "year": 2013, "color": "Orange", "vin": "greg34"},
-    // {"brand": "mobapp.png", "year": 2000, "color": "Black", "vin": "h54hw5"},
-    // {"brand": "mobapp.png", "year": 2013, "color": "Red", "vin": "245t2s"}
+  // = [
+  // {"brand": "mobapp.png", "year": 2012, "color": "Orange", "vin": "dsad231ff"},
+  // {"brand": "ui.png", "year": 2011, "color": "Black", "vin": "gwregre345"},
+  // {"brand": "ui.png", "year": 2005, "color": "Gray", "vin": "h354htr"},
+  // {"brand": "mobapp.png", "year": 2005, "color": "Gray", "vin": "h354htr"},
+  // {"brand": "mobapp.png", "year": 2003, "color": "Blue", "vin": "j6w54qgh"},
+  // {"brand": "mobapp.png", "year": 1995, "color": "Orange", "vin": "hrtwy34"},
+  // {"brand": "mobapp.png", "year": 2005, "color": "Black", "vin": "jejtyj"},
+  // {"brand": "mobapp.png", "year": 2012, "color": "Yellow", "vin": "g43gr"},
+  // {"brand": "mobapp.png", "year": 2013, "color": "Orange", "vin": "greg34"},
+  // {"brand": "mobapp.png", "year": 2000, "color": "Black", "vin": "h54hw5"},
+  // {"brand": "mobapp.png", "year": 2013, "color": "Red", "vin": "245t2s"}
 
   listOfMedia : any;
   panels = [
@@ -50,8 +48,8 @@ export class SurveyMonitoringComponent implements OnInit {
       name: 'Processed Survey'
     }
   ];
-   isVisible: boolean = false;
-   isVisibleVideo: boolean = false;
+  isVisible: boolean = false;
+  isVisibleVideo: boolean = false;
   validateForm: FormGroup;
   private survey: SurveyModel;
   saveLoading: boolean = true;
@@ -63,7 +61,7 @@ export class SurveyMonitoringComponent implements OnInit {
   decision="";
   saveDecision: boolean = false;
   private id: any;
-   showDecisionSelect: boolean = true;
+  showDecisionSelect: boolean = true;
   isVisiblePicture: boolean = false;
 
   isVisibleAudio: boolean = false;
@@ -76,7 +74,7 @@ export class SurveyMonitoringComponent implements OnInit {
               private surveyService: SurveyService,
               private mediaService: MediaService,
               public dialog: NzModalService,
-  private loginservice:AuthenticationService) {
+              private loginservice:AuthenticationService) {
 
     this.validateForm = this.fb.group({
       id: '',
@@ -104,12 +102,6 @@ export class SurveyMonitoringComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    let group={};
-    form_template.forEach(input_template=>{
-      group[input_template.label]=new FormControl('');
-    })
-    this.myFormGroup = new FormGroup(group);
     this.getSurveyList();
   }
 

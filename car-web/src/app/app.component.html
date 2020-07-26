@@ -8,11 +8,11 @@
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>SME Administration </h1>
-        <span style="color: white; margin-left: 2%; font-size: 121%; font-family: fantasy;">V1.7</span>
+        <h1>SupraTeam Administration </h1>
+<!--        <span style="color: white; margin-left: 2%; font-size: 121%; font-family: fantasy;">V1.7</span>-->
       </a>
     </div>
-    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+    <ul nz-menu style="background: #282e2f !important;" nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li *ngIf="isAdmin"  nz-submenu nzOpen nzTitle="Administration" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
@@ -24,7 +24,7 @@
       <li nz-submenu nzOpen nzTitle="Client" nzIcon="dashboard">
         <ul>
           <li *ngIf="isAdmin" nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome/template">Client Management</a>
+            <a routerLink="/welcome/client">Client Management</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/welcome/monitoring">Monitoring</a>
@@ -32,14 +32,21 @@
         </ul>
       </li>
 
-      <li nz-submenu nzOpen nzTitle="Search" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="Vehicle" nzIcon="dashboard">
+        <ul>
+          <li *ngIf="isAdmin" nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome/v-management">Vehicle Management</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome/v-monitoring">Monitoring</a>
+          </li>
+        </ul>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="Search Advanced" nzIcon="dashboard">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome/search">Search Car</a>
-          </li>
-
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome/search">Search Client</a>
+            <a routerLink="/welcome/search">Search</a>
           </li>
         </ul>
       </li>
@@ -87,7 +94,7 @@
 <!--    Password: test-->
 <!--  </div>-->
   <div class="card">
-    <h4 class="card-header">SME Login</h4>
+    <h4 class="card-header">SupraTeam Login</h4>
     <div class="card-body">
       <form [formGroup]="validateForm">
         <div class="form-group">

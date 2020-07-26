@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {SurveyService} from "../welcome/services/survey.service";
+import { Component, OnInit } from '@angular/core';
 import {SurveyModel} from "../../model/SurveyModel";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {SurveyService} from "../welcome/services/survey.service";
 
 @Component({
-  selector: 'app-survey-search',
-  templateUrl: './survey-search.component.html',
-  styleUrls: ['./survey-search.component.scss']
+  selector: 'app-search-advanced',
+  templateUrl: './search-advanced.component.html',
+  styleUrls: ['./search-advanced.component.scss']
 })
-export class SurveySearchComponent implements OnInit {
+export class SearchAdvancedComponent implements OnInit {
   dateFormat = 'dd/MM/yyyy';
   listOfData: SurveyModel[];
   validateForm!: FormGroup;
@@ -23,10 +23,10 @@ export class SurveySearchComponent implements OnInit {
 
   toggleCollapse(): void {
     this.isCollapse = !this.isCollapse;
-    // this.controlArray.forEach((c, index) => {
-    //   c.show = this.isCollapse ? index < 6 : true;
-    // });
-  }
+  // this.controlArray.forEach((c, index) => {
+  //   c.show = this.isCollapse ? index < 6 : true;
+  // });
+}
 
 
   ngOnInit(): void {
@@ -39,12 +39,12 @@ export class SurveySearchComponent implements OnInit {
       scoreMax: null,
       statusSystem: null,
     });
-    this.getSurveyList();
-  }
+  this.getSurveyList();
+}
 
   resetForm(): void {
     this.validateForm.reset();
-  }
+}
 
 
   getSurveyList() {

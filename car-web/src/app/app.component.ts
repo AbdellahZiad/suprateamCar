@@ -46,7 +46,7 @@ export class AppComponent implements OnInit{
   }
 
   //login
-  isAuth: any = false;
+  isAuth: any = true;
   user: any;
   emailPattern: any;
   error: boolean =true;

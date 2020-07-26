@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="053d55b2-48f6-4629-a640-2189a383eee2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:/Program Files/Apache Maven/apache-maven-3.6.3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1fBLcL2vD7ueimUaG3HapOQxkF4" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="ExpandSpringBootSpringBootSettingsPanel" value="false" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/car-web" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/car-web/node_modules/protractor" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="ts.external.directory.path" value="C:\Users\Abdel\Desktop\SuprateamCarM\car-web\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Abdel\Desktop\SuprateamCarM\car-web" />
+      <recent name="C:\Users\Abdel\Desktop\SuprateamCarM\car-web\src" />
+      <recent name="C:\Users\Abdel\Desktop\SuprateamCarM\car-web\src\app" />
+      <recent name="C:\Users\Abdel\Desktop\SuprateamCarM\car-server\src\main\java\com\suprateam\car" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CarApplication">
+    <configuration name="Tests (car-web)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/car-web/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/car-web/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$/car-web" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (car-web)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/car-web/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/car-web/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="CarApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="car" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.suprateam.car.CarApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/car-web/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="053d55b2-48f6-4629-a640-2189a383eee2" name="Default Changelist" comment="" />
+      <created>1595686623468</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595686623468</updated>
+      <workItem from="1595686643592" duration="5013000" />
+      <workItem from="1595697766481" duration="560000" />
+      <workItem from="1595774654538" duration="1522000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#TSLint" timestamp="1595698313183">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#TSLint/0.0.1366.728@0.0.1366.728" timestamp="1595698313183" />
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1595694130382">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1595694130382" />
+    <state x="412" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1595694056717">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="412" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1595694056717" />
+    <state x="754" y="114" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595687049493">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="754" y="114" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1595687049493" />
+    <state x="463" y="105" key="FileChooserDialogImpl" timestamp="1595776250326">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1595776250326" />
+    <state width="1323" height="444" key="GridCell.Tab.0.bottom" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.0.center" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.0.left" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.0.right" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.1.bottom" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.1.center" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.1.left" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.1.right" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.2.bottom" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.2.center" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.2.left" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state width="1323" height="444" key="GridCell.Tab.2.right" timestamp="1595774915305">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="444" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1595774915305" />
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1595694416138">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1595694416138" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1595776304493">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1595776304493" />
+    <state x="388" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1595774662703">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="388" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1595774662703" />
+    <state x="188" y="22" width="1127" height="579" key="find.popup" timestamp="1595697301265">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="188" y="22" width="1127" height="579" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1595697301265" />
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup" timestamp="1595775398076">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="339" y="17" width="672" height="676" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1595775398076" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SuprateamCarM$CarApplication.ic" NAME="CarApplication Coverage Results" MODIFIED="1595697984223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

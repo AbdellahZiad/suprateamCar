@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.suprateam.car</groupId>
+    <artifactId>car</artifactId>
+    <packaging>pom</packaging>
+    <version>1.6-SNAPSHOT</version>
+
+    <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.2.2.RELEASE</version>
+    </parent>
+
+    <modules>
+        <module>car-web</module>
+        <module>car-server</module>
+    </modules>
+
+    <properties>
+        <version-project>1.5-SNAPSHOT</version-project>
+    </properties>
+
+    <build>
+        <finalName>car</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.4</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>coverage</id>
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                       <artifactId>jacoco-maven-plugin</artifactId>
+                       <version>${jacoco-maven-plugin.version}</version>
+                       <executions>
+                           <execution>
+                               <id>prepare-ut-agent</id>
+                                <phase>process-test-classes</phase>
+                               <goals>
+                                    <goal>prepare-agent</goal>
+                               </goals>
+                               <configuration>
+                                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                                    <propertyName>jacoco.agent.ut.arg</propertyName>
+                                   <append>true</append>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Surefire -->
+                    <plugin>
+                       <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                        <configuration>
+                            <argLine>${jacoco.agent.ut.arg} -Xms512m -Xmx4096m</argLine>
+                            <reportsDirectory>${sonar.surefire.reportPath}</reportsDirectory>
+                            <properties>
+                                <property>
+                                    <name>listener</name>
+                                    <value>org.sonar.java.jacoco.JUnitListener</value>
+                                </property>
+                            </properties>
+                            <testFailureIgnore>true</testFailureIgnore>
+                       </configuration>
+                   </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

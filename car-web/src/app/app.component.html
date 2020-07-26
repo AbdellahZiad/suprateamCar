@@ -1,0 +1,151 @@
+<nz-layout *ngIf="isAuth" class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>SME Administration </h1>
+        <span style="color: white; margin-left: 2%; font-size: 121%; font-family: fantasy;">V1.7</span>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li *ngIf="isAdmin"  nz-submenu nzOpen nzTitle="Administration" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome/users">Users management</a>
+          </li>
+        </ul>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="Client" nzIcon="dashboard">
+        <ul>
+          <li *ngIf="isAdmin" nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome/template">Client Management</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome/monitoring">Monitoring</a>
+          </li>
+        </ul>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="Search" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome/search">Search Car</a>
+          </li>
+
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome/search">Search Client</a>
+          </li>
+        </ul>
+      </li>
+
+
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+
+        <span style="    float: right;
+    margin-right: 4%;
+    cursor: pointer;">
+          Logout
+<!--          <i nz-icon nzType="login" style="font-size: 151%; color: #232627;cursor: pointer;" (click)="showModule()" nzTheme="outline"></i>-->
+        <i nz-icon nzType="logout" (click)="logout()" style="font-size: 151%; color: #232627;cursor: pointer;"
+                nzTheme="outline"></i>
+        </span>
+
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+
+
+
+
+<div style="margin: auto;
+    width: 90%;"  *ngIf="!isAuth" nz-title="Login" disabled="!validateForm.valid">
+  ﻿<div class="col-md-6 offset-md-3 mt-5">
+<!--  <div class="alert alert-info">-->
+<!--    Username: test<br />-->
+<!--    Password: test-->
+<!--  </div>-->
+  <div class="card">
+    <h4 class="card-header">SME Login</h4>
+    <div class="card-body">
+      <form [formGroup]="validateForm">
+        <div class="form-group">
+          <label for="username">Email</label>
+          <input type="text" formControlName="username" class="form-control"  />
+          <div  class="invalid-feedback">
+            <div >Email is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control"  />
+          <div  class="invalid-feedback">
+            <div >Password is required</div>
+          </div>
+        </div>
+        <button (click)="checkLogin()" [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Login
+        </button>
+<!--        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{errorMessage}}</div>-->
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<!--<div class="col-md-6 offset-md-3 mt-5">-->
+<!--  <div class="alert alert-info">-->
+<!--    Username: test<br />-->
+<!--    Password: test-->
+<!--  </div>-->
+<!--  <div class="card">-->
+<!--    <h4 class="card-header">Angular 8 Basic Auth Login Example</h4>-->
+<!--    <div class="card-body">-->
+<!--      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">-->
+<!--        <div class="form-group">-->
+<!--          <label for="username">Username</label>-->
+<!--          <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />-->
+<!--          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">-->
+<!--            <div *ngIf="f.username.errors.required">Username is required</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--          <label for="password">Password</label>-->
+<!--          <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />-->
+<!--          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">-->
+<!--            <div *ngIf="f.password.errors.required">Password is required</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <button [disabled]="loading" class="btn btn-primary">-->
+<!--          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>-->
+<!--          Login-->
+<!--        </button>-->
+<!--        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

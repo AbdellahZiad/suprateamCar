@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    password: ziad2018
+    url: jdbc:postgresql://localhost:5432/suprateam
+    username: postgres
+
+  jpa:
+    hibernate:
+      dialect : org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: create
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+sme:
+  application-folder: C:\Users\Abdel\Desktop\SCOR_SME\scor-sme
+
+
+jwt:
+  secret: javainuse
+server:
+  port: 8288

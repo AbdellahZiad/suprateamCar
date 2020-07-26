@@ -1,0 +1,5 @@
+library 'jenkins_shared_library@master'
+node ('dcvprdadm03') {
+def project = getGitProjectNameTFS()
+"jf_${project}"()
+}

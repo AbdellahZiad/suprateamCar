@@ -28,19 +28,11 @@ public class SmeUser implements java.io.Serializable {
 //    @Column(name = "role", length = 50)
 //    private String role;
 
-    @ManyToOne(targetEntity = Company.class)
-    private Company company;
-
     private Date createDate;
 
     private Date validUntil;
 
     private boolean active = true;
-
-    @OneToMany(mappedBy = "user")
-    @JsonIgnore
-    private java.util.List<SurveyUser> surveyUserList;
-
 
     @ManyToOne(targetEntity = Role.class)
     private Role role;

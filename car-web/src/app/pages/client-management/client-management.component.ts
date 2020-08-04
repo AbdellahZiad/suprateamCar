@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserModel} from "../../model/UserModel";
 import {NzMessageService, NzModalService} from "ng-zorro-antd";
 import {UserService} from "../../services/user.service";
+import {ClientService} from "../../services/client.service";
 
 @Component({
   selector: 'app-client-management',
@@ -43,19 +44,16 @@ export class ClientManagementComponent implements OnInit {
   constructor(private msg: NzMessageService,
               private modal: NzModalService,
               private fb: FormBuilder,
-              private userService: UserService) {
+              private clientService: ClientService) {
 
     this.validateForm = this.fb.group({
-      id: '',
-      email: [null, [Validators.email, Validators.required]],
-      pw: [null, [Validators.required]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      fullName: [null, [Validators.required]],
-      role: [null],
-      companyName: [null, [Validators.required]],
-      validUntil: [null, [Validators.required]],
-      createDate: '',
-      active: '',
+      name: [null, [Validators.required]],
+      cin: [null, [Validators.required]],
+      tel: [null, [Validators.required]],
+      dateDebut: [null, [Validators.required]],
+      dateFin: [null, [Validators.required]],
+      numberDay: [null,[Validators.required]],
+      total: [null,[Validators.required]],
     });
 
     this.getAllUsers();
@@ -72,11 +70,11 @@ export class ClientManagementComponent implements OnInit {
     if (user == null) {
       this.pw = false;
       this.validateForm.reset();
-      this.title = "New User";
+      this.title = "Nouveau Client";
     } else {
       this.selectedUser = user;
       this.validateForm.patchValue(user);
-      this.title = "Update User";
+      this.title = "Modifier Client";
       this.pw = true;
     }
     this.isVisible = true;
@@ -89,7 +87,7 @@ export class ClientManagementComponent implements OnInit {
     this.selectedUser = this.validateForm.value;
 
     if (this.validateForm.valid) {
-      this.userService.saveUser(this.selectedUser)
+      this.clientService.saveClient(this.validateForm.value)
         .subscribe(
           data =>{
             this.msg.success("User saved successfully");
@@ -134,7 +132,7 @@ export class ClientManagementComponent implements OnInit {
 
   private confirmDelete() {
 
-    this.userService.deleteUser(this.id)
+    this.clientService.deleteClient(this.id)
       .subscribe(
         data => {
           console.log("---> data after delete", data);
@@ -157,7 +155,7 @@ export class ClientManagementComponent implements OnInit {
   }
 
   private getAllUsers() {
-    this.userService.getAllUser()
+    this.clientService.getAllClient()
       .subscribe(
         data => {
           console.log("---data", data);

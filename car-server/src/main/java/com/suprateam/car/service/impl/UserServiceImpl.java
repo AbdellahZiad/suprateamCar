@@ -3,10 +3,7 @@ package com.suprateam.car.service.impl;
 
 import com.suprateam.car.dto.UserDto;
 import com.suprateam.car.exception.APIException;
-import com.suprateam.car.model.Company;
-import com.suprateam.car.model.Role;
 import com.suprateam.car.model.SmeUser;
-import com.suprateam.car.repository.CompanyRepository;
 import com.suprateam.car.repository.RoleRepository;
 import com.suprateam.car.repository.UserRepository;
 import com.suprateam.car.service.UserService;
@@ -27,14 +24,12 @@ public class UserServiceImpl implements UserService {
 
     UserRepository userRepository;
 
-    CompanyRepository companyRepository;
 
     RoleRepository roleRepository;
 
     @Autowired
-    public UserServiceImpl(RoleRepository roleRepository, UserRepository userRepository, CompanyRepository companyRepository) {
+    public UserServiceImpl(RoleRepository roleRepository, UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.companyRepository = companyRepository;
         this.roleRepository = roleRepository;
     }
 
@@ -57,7 +52,7 @@ public class UserServiceImpl implements UserService {
                     .email(smeUser.getEmail())
                     .pw(smeUser.getPw())
                     .checkPassword(smeUser.getPw())
-                    .companyName(smeUser.getCompany() != null ? smeUser.getCompany().getName() : null).build();
+                    .build();
 
             userDtoList.add(userDto);
 
@@ -82,8 +77,7 @@ public class UserServiceImpl implements UserService {
                 throw new APIException("Email : " + userDto.getEmail() + " is already exists");
 
         SmeUser smeUser = new SmeUser();
-        Company company = new Company();
-        company.setName(userDto.getCompanyName());
+
 
         smeUser.setId(userDto.getId());
         smeUser.setEmail(userDto.getEmail());
@@ -92,11 +86,6 @@ public class UserServiceImpl implements UserService {
         smeUser.setValidUntil(userDto.getValidUntil());
         smeUser.setActive(userDto.isActive());
         smeUser.setPw(userDto.getPw());
-
-        if (companyRepository.findFirstByNameIgnoreCase(userDto.getCompanyName()).isPresent())
-            smeUser.setCompany(companyRepository.findFirstByNameIgnoreCase(userDto.getCompanyName()).get());
-        else
-            smeUser.setCompany(companyRepository.save(company));
 
 
 //        if (userDto.getRole().toLowerCase().contains("adm"))
@@ -118,7 +107,7 @@ public class UserServiceImpl implements UserService {
                 .id(smeUser.getId())
                 .fullName(smeUser.getFullName())
                 .email(smeUser.getEmail())
-                .companyName(smeUser.getCompany().getName())
+//                .companyName(smeUser.getCompany().getName())
                 .active(smeUser.isActive())
 //                .role(smeUser.getRole())
                 .createDate(smeUser.getCreateDate())

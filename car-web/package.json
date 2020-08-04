@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "prod": "ng build --baseHref ",
+    "build": "ng build -prod –output-path META-INF/resources",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

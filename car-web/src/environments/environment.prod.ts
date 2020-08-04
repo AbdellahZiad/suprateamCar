@@ -1,4 +1,4 @@
 export const environment = {
   production: true
 };
-export const endpoint = 'http://localhost:8288/';
+export const endpoint = 'http://ns1.unaux.com:8283/';

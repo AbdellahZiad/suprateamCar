@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -16,22 +18,18 @@ public class Client implements java.io.Serializable {
 
     private String name;
 
-    @OneToOne(mappedBy = "client")
-    private AddressCl address;
+    private Double tel;
 
-    private Double AnnualRevenue;
+    private Date dateDebut;
 
-    private Double sumInsured;
+    private Date dateFin;
 
-    private Double employeesNumber;
+    private Integer numberDay;
 
-    private Double numberOfYearsInBusiness;
+    private Double total;
 
-    private String financialStability;
+    private Double coutEntretienAndFix;
 
-    //    private Double seniority;
-
-    @OneToMany(mappedBy = "client")
-    @JsonIgnore
-    java.util.List<SurveyUser> surveyUser;
+    @OneToMany()
+    List<EntretienAndFix> entretienAndFixes;
 }

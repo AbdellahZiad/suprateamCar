@@ -7,7 +7,7 @@
     <groupId>com.suprateam.car</groupId>
     <artifactId>car</artifactId>
     <packaging>pom</packaging>
-    <version>1.6-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <parent>
     <groupId>org.springframework.boot</groupId>
@@ -80,6 +80,25 @@
                             <testFailureIgnore>true</testFailureIgnore>
                        </configuration>
                    </plugin>
+
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-resources</id>
+                                <phase>validate</phase>
+                                <goals><goal>copy-resources</goal></goals>
+                                <configuration>
+                                    <outputDirectory>${build.directory}/classes/static/</outputDirectory >
+                                    <resources>
+                                        <resource>
+                                            <directory>../car-web/dist</directory>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
                 </plugins>
             </build>
         </profile>

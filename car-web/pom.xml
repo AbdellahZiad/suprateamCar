@@ -5,12 +5,12 @@
     <parent>
         <artifactId>car</artifactId>
         <groupId>com.suprateam.car</groupId>
-        <version>1.6-SNAPSHOT</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>car-web</artifactId>
     <groupId>com.suprateam.car</groupId>
-    <version>1.6-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <build>
@@ -82,6 +82,12 @@
                 </executions>
             </plugin>
         </plugins>
+      <resources>
+        <resource>
+          <directory>target/car-web</directory>
+          <targetPath>static</targetPath>
+        </resource>
+      </resources>
     </build>
 
 

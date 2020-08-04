@@ -16,8 +16,6 @@ public interface UserRepository extends JpaRepository<SmeUser,Long> {
 
     SmeUser findByEmailIgnoreCase(String email);
 
-    List<SmeUser> findByCompanyNameIgnoreCase(String companyName);
-
     @Modifying
     @Query(value = "UPDATE SmeUser s SET s.active=false where s.id= :id")
     public int desactivateUserById(@Param("id") Long id);

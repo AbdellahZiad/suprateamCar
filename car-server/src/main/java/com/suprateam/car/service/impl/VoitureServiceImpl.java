@@ -1,68 +1,66 @@
 package com.suprateam.car.service.impl;
 
 
-import com.suprateam.car.model.Client;
-import com.suprateam.car.repository.ClientRepository;
+import com.suprateam.car.model.Voiture;
 import com.suprateam.car.repository.RoleRepository;
+import com.suprateam.car.repository.VoitureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static com.suprateam.car.util.SurveyUserSpecification.filterSurveyM;
+import static com.suprateam.car.util.SurveyUserSpecification.filterVM;
 
 @Service
-public class ClientServiceImpl {
+public class VoitureServiceImpl {
 
 
-    ClientRepository clientRepository;
+    VoitureRepository VoitureRepository;
 
 
     RoleRepository roleRepository;
 
     @Autowired
-    public ClientServiceImpl(RoleRepository roleRepository, ClientRepository clientRepository
+    public VoitureServiceImpl(RoleRepository roleRepository, VoitureRepository VoitureRepository
     ) {
-        this.clientRepository = clientRepository;
+        this.VoitureRepository = VoitureRepository;
         this.roleRepository = roleRepository;
     }
 
 
-    public List<Client> getAllClient() {
-        return clientRepository.findAll();
+    public List<Voiture> getAllVoiture() {
+        return VoitureRepository.findAll();
     }
 
 
-    public String deleteClient(Long id) {
-//        clientRepository.desactivateUserById(id);
+    public String deleteVoiture(Long id) {
+//        VoitureRepository.desactivateUserById(id);
 
         return "Ok";
     }
 
-    public Client saveClient(Client client) {
-        return clientRepository.save(client);
+    public Voiture saveVoiture(Voiture Voiture) {
+        return VoitureRepository.save(Voiture);
 
     }
 
-    public List<Client> filter(Pageable pageable, String filter) {
+    public List<Voiture> filter(Pageable pageable, String filter) {
         return doFilterM(pageable, filter);
     }
 
-    private List<Client> doFilterM(Pageable pageable, String filter) {
+    private List<Voiture> doFilterM(Pageable pageable, String filter) {
         if (filter != null)
-
-            return clientRepository.findAll(filterSurveyM(filter), pageable).getContent();
-
-        return clientRepository.findAll();
+            return VoitureRepository.findAll(filterVM(filter), pageable).getContent();
+        return VoitureRepository.findAll();
 
     }
 
-    private List<Client> filterWithDouble(String filter) {
-        return clientRepository.findAll();
+    private List<Voiture> filterWithDouble(String filter) {
+        return VoitureRepository.findAll();
 //        .stream().filter(
-//                client ->
-//                        Integer.valueOf(client.getNumberDay().intValue()).equals(Double.valueOf(filter).intValue())
+//                Voiture ->
+//                        Integer.valueOf(Voiture.getNumberDay().intValue()).equals(Double.valueOf(filter).intValue())
 //                                ||
 //                                Integer.valueOf(Double.valueOf(surveyUser.getFinalPrice()).intValue()).equals(Integer.valueOf(Double.valueOf(filter).intValue()))
 //                                ||

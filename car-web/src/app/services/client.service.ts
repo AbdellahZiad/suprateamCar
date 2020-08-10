@@ -23,4 +23,14 @@ export class ClientService {
   getAllClient() {
     return this.http.get(endpoint + "api/client");
   }
+
+  getAllVoiture() {
+    return this.http.get(endpoint + "api/voiture");
+
+  }
+
+  search(search: any) {
+    return this.http.get(endpoint + "api/client/search?filter="+search);
+
+  }
 }

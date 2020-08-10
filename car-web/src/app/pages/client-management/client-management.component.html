@@ -1,21 +1,46 @@
-<button nz-button nzType="primary" (click)="showModal(null)">Nouveau Client</button>
+<div class="row">
+  <div class="col-6">
+<!--    <button nz-button nzType="primary" (click)="showModal(null)">Nouveau Client</button>-->
+    <button (click)="showModal(null)" style="height: 100%;" nz-button [nzType]="'primary'">Nouveau Client</button>
+
+  </div>
+</div>
+<br>
+<br>
+
+<div class="row">
+  <!-- Search form -->
+  <div class="col-10">
+    <input [(ngModel)]="search" class="form-control" type="text" placeholder="Search" aria-label="Search">
+  </div>
+  <div class="col-2" >
+    <button (click)="searchData()" style="width: 100%;height: 100%;" nz-button [nzType]="'primary'">Search</button>
+  </div>
+</div>
+
+<br>
+
+
 <br>
 <nz-table #basicTable [nzData]="listOfData">
   <thead>
   <tr>
+    <th>Id</th>
     <th>Nom de Client</th>
     <th>CIN</th>
-    <th>N¨ Telephone</th>
+    <th>Numéro de Téléphone</th>
     <th>Date Debut</th>
     <th>Date Fin</th>
     <th>Nombre de jours</th>
     <th>Prix</th>
+    <th>Action</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let data of basicTable.data">
     <td>{{ data.id }}</td>
     <td>{{ data.name }}</td>
+    <td>{{ data.cin }}</td>
     <td>{{ data.tel }}</td>
     <td>{{ data.dateDebut | date: "dd-mm-yyyy HH:MM" }}</td>
     <td>{{ data.dateFin | date: "dd-mm-yyyy HH:MM"}}</td>
@@ -24,7 +49,8 @@
     <td>
       <button nz-button nzType="primary" [nzSize]="'small'"><i nz-icon nzType="eye"></i></button>
       &nbsp;
-      <button nz-button (click)="showModal(data)" nzType="sucess" [nzSize]="'small'"><i nz-icon nzType="edit"></i></button>
+      <button nz-button (click)="showModal(data)" nzType="sucess" [nzSize]="'small'"><i nz-icon nzType="edit"></i>
+      </button>
       &nbsp;
       <button nz-button (click)="deleteUser(data.id)" nzType="danger" [nzSize]="'small'"><i nz-icon nzType="delete"></i>
       </button>
@@ -33,58 +59,120 @@
   </tbody>
 </nz-table>
 
-<nz-modal [(nzVisible)]="isVisible" nzTitle="{{title}}"  disabled="!validateForm.valid" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<nz-modal [(nzVisible)]="isVisible" nzTitle="{{title}}" disabled="!validateForm.valid" (nzOnCancel)="handleCancel()"
+          (nzOnOk)="handleOk()">
 
-  <form nz-form [formGroup]="validateForm" >
+  <form nz-form [formGroup]="validateForm">
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name">Nom de Client</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Name Client is not valid E-mail!">
-        <input nz-input formControlName="name" id="name" />
+        <input nz-input formControlName="name" id="name"/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="cin">CIN</nz-form-label>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="cin">CIN</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Name Client is not valid E-mail!">
-        <input nz-input formControlName="cin" id="cin" />
+        <input nz-input formControlName="cin" id="cin"/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="tel">N¨ Telephone</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input Telephone!">
-        <input nz-input formControlName="tel" id="tel" />
+        <input nz-input formControlName="tel" id="tel"/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="dateDebut" nzRequired>Date Debut</nz-form-label>
       <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="Please input dateDebut!">
-        <nz-date-picker  style="width: 100%" formControlName="dateDebut"></nz-date-picker>
+        <nz-date-picker style="width: 100%" formControlName="dateDebut"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="dateFin" nzRequired>Date Fin</nz-form-label>
       <nz-form-control [nzSm]="18" [nzXs]="24" nzErrorTip="Please input dateFin!">
-        <nz-date-picker  style="width: 100%" formControlName="dateFin"></nz-date-picker>
+        <nz-date-picker style="width: 100%" formControlName="dateFin"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="numberDay">Nombre de jours</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input Telephone!">
-        <input nz-input formControlName="numberDay" id="numberDay" />
+        <input nz-input formControlName="numberDay" id="numberDay"/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="total">Prix</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input Telephone!">
-        <input nz-input formControlName="total" id="total" />
+        <input nz-input formControlName="total" id="total"/>
       </nz-form-control>
     </nz-form-item>
 
 
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="serchV">Voiture</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input Telephone!">
+        <input nz-input (keyup)="onKey($event)" formControlName="serchV" id="serchV" />
+      </nz-form-control>
+    </nz-form-item>
+
+<!--    <div class="row">-->
+<!--        &lt;!&ndash; Search form &ndash;&gt;-->
+<!--        <div class="col-10">-->
+<!--          <input [(ngModel)]="search" class="form-control" type="text" placeholder="Search" aria-label="Search">-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <div class="col-2" >&ndash;&gt;-->
+<!--&lt;!&ndash;          <button (click)="getVoiture()" style="width: 100%;height: 100%;" nz-button [nzType]="'primary'">Search</button>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--      </div>-->
+
   </form>
 </nz-modal>
+
+
+
+<!--<nz-modal [(nzVisible)]="showV" nzTitle="{{title}}" disabled="!validateForm.valid" (nzOnCancel)="handleCancel()"-->
+<!--          (nzOnOk)="handleOk()">-->
+
+<!--  <div class="container-fluid mb-3">-->
+<!--    <form nz-form class="ant-advanced-search-form" [formGroup]="filterForm">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-6 col-sm-12 offset-md-2 col-lg-6 offset-lg-2">-->
+<!--          <nz-input-group [nzSuffix]="suffixIconSearch">-->
+<!--            <input type="text" nz-input placeholder="input search text" (input)="searchData()"-->
+<!--                   formControlName="name"/>-->
+<!--          </nz-input-group>-->
+<!--          <ng-template #suffixIconSearch>-->
+<!--            <i nz-icon nzType="search"></i>-->
+<!--          </ng-template>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </form>-->
+<!--  </div>-->
+
+<!--  <nz-table #basicTable [nzData]="listOfData">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      <th>Id</th>-->
+<!--      <th>Marque</th>-->
+<!--      <th>Matrecule</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor="let data of basicTable.data">-->
+<!--      <td>{{ data.id }}</td>-->
+<!--      <td>{{ data.name }}</td>-->
+<!--      <td>{{ data.cin }}</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </nz-table>-->
+
+
+<!--</nz-modal>-->
+
+

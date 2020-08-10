@@ -1,7 +1,6 @@
 package com.suprateam.car.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,7 +17,9 @@ public class Client implements java.io.Serializable {
 
     private String name;
 
-    private Double tel;
+    private String cin;
+
+    private String tel;
 
     private Date dateDebut;
 
@@ -32,4 +33,7 @@ public class Client implements java.io.Serializable {
 
     @OneToMany()
     List<EntretienAndFix> entretienAndFixes;
+
+    @OneToMany()
+    List<Voiture> vehicleList;
 }

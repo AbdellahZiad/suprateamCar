@@ -4,6 +4,7 @@ import {UserModel} from "../../model/UserModel";
 import {NzMessageService, NzModalService} from "ng-zorro-antd";
 import {UserService} from "../../services/user.service";
 import {ClientService} from "../../services/client.service";
+import {VoitureModel} from "../../model/VoitureModel";
 
 @Component({
   selector: 'app-client-management',
@@ -20,13 +21,17 @@ export class ClientManagementComponent implements OnInit {
   pw: boolean = false;
   passwordVisible = false;
   password?: string;
-
+  isCollapse = false;
+  isFormCollapsed: boolean;
+  search: any;
+  voiturList: VoitureModel [];
   // [
   // {user: 'Admin', email: 'admin@scor.com', role: 'admin', creationDate: '07/05/2017', validUntil: '', active: 'Y'},
   // {user: 'Admin', email: 'admin@scor.com', role: 'admin', creationDate: '09/11/2019', validUntil: '09/11/2024', active: 'Y'},
   // {user: 'Admin', email: 'admin@scor.com', role: 'admin', creationDate: '07/12/2018', validUntil: '31/12/2020', active: 'Y'}];
   validateForm!: FormGroup;
-
+  validateFormSearch: FormGroup;
+  filterForm: FormGroup;
   selectedUser: UserModel;
   roles: [
     {
@@ -39,6 +44,7 @@ export class ClientManagementComponent implements OnInit {
     }
   ];
   title: any;
+  private showV: boolean = false;
 
 
   constructor(private msg: NzMessageService,
@@ -47,21 +53,26 @@ export class ClientManagementComponent implements OnInit {
               private clientService: ClientService) {
 
     this.validateForm = this.fb.group({
+      id: null,
       name: [null, [Validators.required]],
-      cin: [null, [Validators.required]],
+      cin: [null],
       tel: [null, [Validators.required]],
       dateDebut: [null, [Validators.required]],
       dateFin: [null, [Validators.required]],
       numberDay: [null,[Validators.required]],
       total: [null,[Validators.required]],
+      serchV: [null],
     });
 
-    this.getAllUsers();
+    // this.getAllUsers();
+    // this.getVoitureList();
 
   }
 
   ngOnInit() {
     this.getAllUsers();
+    this.getVoitureList();
+
   }
 
   showModal(user): void {
@@ -81,6 +92,9 @@ export class ClientManagementComponent implements OnInit {
 
   }
 
+  resetForm(): void {
+    this.validateFormSearch.reset();
+  }
   handleOk(): void {
 
     console.log("Form data OK = ", this.validateForm.valid);
@@ -91,7 +105,9 @@ export class ClientManagementComponent implements OnInit {
         .subscribe(
           data =>{
             this.msg.success("User saved successfully");
+            this.showV = true;
             this.getAllUsers()
+
           },error => {
             this.msg.error(error.error.message);
             console.log("--->ERROR", error);
@@ -180,6 +196,8 @@ export class ClientManagementComponent implements OnInit {
     return {};
   };
 
+
+
   getCaptcha(e: MouseEvent): void {
     e.preventDefault();
   }
@@ -188,25 +206,44 @@ export class ClientManagementComponent implements OnInit {
   showOrHidePw() {
   }
 
-}
-
-export function MustMatch(controlName: string, matchingControlName: string) {
-  return (formGroup: FormGroup) => {
-    const control = formGroup.controls[controlName];
-    const matchingControl = formGroup.controls[matchingControlName];
-
-    if (matchingControl.errors && !matchingControl.errors.mustMatch) {
-      // return if another validator has already found an error on the matchingControl
-      return;
-    }
-
-    // set error on matchingControl if validation fails
-    if (control.value !== matchingControl.value) {
-      matchingControl.setErrors({mustMatch: true});
-    } else {
-      matchingControl.setErrors(null);
-    }
+  toggleCollapse(): void {
+    this.isCollapse = !this.isCollapse;
+    // this.controlArray.forEach((c, index) => {
+    //   c.show = this.isCollapse ? index < 6 : true;
+    // });
   }
 
+  searchData() {
+    console.log("-----------> SEARCH",this.search);
+    this.clientService.search(this.search).subscribe(
+      data=> this.listOfData = data
+    )
 
+  }
+
+  getVoiture() {
+    console.log("----->search",this.search);
+  }
+
+  private getVoitureList() {
+    this.clientService.getAllVoiture().subscribe(
+      (data:VoitureModel[])=>{
+        this.voiturList = data
+        console.log("----------> dataV",data)
+      }
+
+    )
+  }
+
+  onKey(event:any) {
+    console.log("---------> event.target.value",event.target.value);
+    this.voiturList
+      .find(ele => ele.marque==event.target.value || ele.matricule==event.target.matricule)
+
+    console.log("-----------------> FIIIND",this.voiturList
+      .find(ele => ele.marque==event.target.value || ele.matricule==event.target.matricule))
+  }
 }
+
+
+

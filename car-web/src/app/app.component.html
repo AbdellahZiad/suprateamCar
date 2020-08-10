@@ -13,18 +13,12 @@
       </a>
     </div>
     <ul nz-menu style="background: #282e2f !important;" nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li *ngIf="isAdmin"  nz-submenu nzOpen nzTitle="Administration" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome/users">Users management</a>
-          </li>
-        </ul>
-      </li>
+
 
       <li nz-submenu nzOpen nzTitle="Client" nzIcon="dashboard">
         <ul>
           <li *ngIf="isAdmin" nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome/client">Client Management</a>
+            <a routerLink="/welcome/client">Gestion des clients</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/welcome/monitoring">Monitoring</a>
@@ -32,13 +26,21 @@
         </ul>
       </li>
 
-      <li nz-submenu nzOpen nzTitle="Vehicle" nzIcon="dashboard">
+      <li nz-submenu nzOpen nzTitle="Voitures" nzIcon="dashboard">
         <ul>
           <li *ngIf="isAdmin" nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome/v-management">Vehicle Management</a>
+            <a routerLink="/welcome/v-management">Gestion des Voitures</a>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/welcome/v-monitoring">Monitoring</a>
+          </li>
+        </ul>
+      </li>
+
+      <li *ngIf="isAdmin"  nz-submenu nzOpen nzTitle="Administration" nzIcon="dashboard">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome/users">Users management</a>
           </li>
         </ul>
       </li>

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserModel} from "../../model/UserModel";
 import {NzMessageService, NzModalService} from "ng-zorro-antd";
-import {UserService} from "../../services/user.service";
+import {VoitureService} from "../../services/voiture.service";
 
 @Component({
   selector: 'app-vehicle-management',
@@ -19,7 +19,7 @@ export class VehicleManagementComponent implements OnInit {
   pw: boolean = false;
   passwordVisible = false;
   password?: string;
-
+  search: any;
   // [
   // {user: 'Admin', email: 'admin@scor.com', role: 'admin', creationDate: '07/05/2017', validUntil: '', active: 'Y'},
   // {user: 'Admin', email: 'admin@scor.com', role: 'admin', creationDate: '09/11/2019', validUntil: '09/11/2024', active: 'Y'},
@@ -43,19 +43,19 @@ export class VehicleManagementComponent implements OnInit {
   constructor(private msg: NzMessageService,
               private modal: NzModalService,
               private fb: FormBuilder,
-              private userService: UserService) {
+              private voitureService: VoitureService) {
 
     this.validateForm = this.fb.group({
       id: '',
-      email: [null, [Validators.email, Validators.required]],
-      pw: [null, [Validators.required]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      fullName: [null, [Validators.required]],
-      role: [null],
-      companyName: [null, [Validators.required]],
-      validUntil: [null, [Validators.required]],
-      createDate: '',
-      active: '',
+      marque: [null, [Validators.required]],
+      matricule: [null, [Validators.required]],
+      // checkPassword: [null, [Validators.required, this.confirmationValidator]],
+      // fullName: [null, [Validators.required]],
+      // role: [null],
+      // companyName: [null, [Validators.required]],
+      // validUntil: [null, [Validators.required]],
+      // createDate: '',
+      // active: '',
     });
 
     this.getAllUsers();
@@ -72,11 +72,11 @@ export class VehicleManagementComponent implements OnInit {
     if (user == null) {
       this.pw = false;
       this.validateForm.reset();
-      this.title = "New User";
+      this.title = "Nouvelle Voiture";
     } else {
       this.selectedUser = user;
       this.validateForm.patchValue(user);
-      this.title = "Update User";
+      this.title = "Modifier Voiture";
       this.pw = true;
     }
     this.isVisible = true;
@@ -89,12 +89,12 @@ export class VehicleManagementComponent implements OnInit {
     this.selectedUser = this.validateForm.value;
 
     if (this.validateForm.valid) {
-      this.userService.saveUser(this.selectedUser)
+      this.voitureService.saveVoiture(this.selectedUser)
         .subscribe(
-          data =>{
+          data => {
             this.msg.success("User saved successfully");
             this.getAllUsers()
-          },error => {
+          }, error => {
             this.msg.error(error.error.message);
             console.log("--->ERROR", error);
             this.getAllUsers()
@@ -134,7 +134,7 @@ export class VehicleManagementComponent implements OnInit {
 
   private confirmDelete() {
 
-    this.userService.deleteUser(this.id)
+    this.voitureService.deleteVoiture(this.id)
       .subscribe(
         data => {
           console.log("---> data after delete", data);
@@ -157,7 +157,7 @@ export class VehicleManagementComponent implements OnInit {
   }
 
   private getAllUsers() {
-    this.userService.getAllUser()
+    this.voitureService.getAllVoiture()
       .subscribe(
         data => {
           console.log("---data", data);
@@ -190,5 +190,11 @@ export class VehicleManagementComponent implements OnInit {
   showOrHidePw() {
   }
 
+  searchData() {
+    console.log("-------> search Data")
+    this.voitureService.search(this.search).subscribe(
+      data=> this.listOfData = data
+    )
+  }
 }
 

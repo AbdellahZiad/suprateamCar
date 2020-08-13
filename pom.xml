@@ -7,12 +7,12 @@
     <groupId>com.suprateam.car</groupId>
     <artifactId>car</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.6-SNAPSHOT</version>
 
     <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.2.2.RELEASE</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
     </parent>
 
     <modules>
@@ -25,7 +25,7 @@
     </properties>
 
     <build>
-        <finalName>car</finalName>
+        <finalName>CAR</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -46,26 +46,26 @@
 
                     <plugin>
                         <groupId>org.jacoco</groupId>
-                       <artifactId>jacoco-maven-plugin</artifactId>
-                       <version>${jacoco-maven-plugin.version}</version>
-                       <executions>
-                           <execution>
-                               <id>prepare-ut-agent</id>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${jacoco-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>prepare-ut-agent</id>
                                 <phase>process-test-classes</phase>
-                               <goals>
+                                <goals>
                                     <goal>prepare-agent</goal>
-                               </goals>
-                               <configuration>
+                                </goals>
+                                <configuration>
                                     <destFile>${sonar.jacoco.reportPath}</destFile>
                                     <propertyName>jacoco.agent.ut.arg</propertyName>
-                                   <append>true</append>
+                                    <append>true</append>
                                 </configuration>
                             </execution>
                         </executions>
                     </plugin>
                     <!-- Surefire -->
                     <plugin>
-                       <groupId>org.apache.maven.plugins</groupId>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>${maven-surefire-plugin.version}</version>
                         <configuration>
@@ -78,26 +78,7 @@
                                 </property>
                             </properties>
                             <testFailureIgnore>true</testFailureIgnore>
-                       </configuration>
-                   </plugin>
-
-                    <plugin>
-                        <artifactId>maven-resources-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>copy-resources</id>
-                                <phase>validate</phase>
-                                <goals><goal>copy-resources</goal></goals>
-                                <configuration>
-                                    <outputDirectory>${build.directory}/classes/static/</outputDirectory >
-                                    <resources>
-                                        <resource>
-                                            <directory>../car-web/dist</directory>
-                                        </resource>
-                                    </resources>
-                                </configuration>
-                            </execution>
-                        </executions>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
